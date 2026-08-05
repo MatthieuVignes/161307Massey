@@ -1,0 +1,44 @@
+---
+title: "Title of your portfolio"
+subtitle: "Portfolio 5 - 161.307 Reproducible Visualisation for Statistics"
+author: "Your name goes here"
+date: "12 August 2026"
+date-format: "D MMM YYYY"
+lang: en-GB
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-float: true
+    number-sections: false
+    number-offset: -1
+    theme: cosmo
+    highlight-style: github
+    code-fold: false
+    self-contained: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+Feel free to modify the structure of the document, as you see fit.
+  
+# Introduction
+
+# Simulation of the random process
+
+```{r random}
+set.seed(2026)
+n_sample <- 100
+random_vec <- rnorm(n_sample, 0, 1)
+```
+
+# Visualisation(s) of the random process
+```{r}
+plot(density(random_vec), xlab = "x", ylab = "Density", main = "Density approximation of 100 samples drawn from N(0,1)")
+```
+
+# Discussion/Conclusion
+
+blablabla
