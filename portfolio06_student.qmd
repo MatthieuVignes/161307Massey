@@ -1,0 +1,67 @@
+---
+title: "Title of your portfolio"
+subtitle: "Portfolio 6 - 161.307 Reproducible Visualisation for Statistics"
+author: "Your name goes here"
+date: "19 August 2026"
+date-format: "D MMM YYYY"
+lang: en-GB
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-float: true
+    number-sections: false
+    number-offset: -1
+    theme: cosmo
+    highlight-style: github
+    code-fold: false
+    self-contained: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+Feel free to modify the structure of the template document, as you see fit.
+
+Remember to read the instructions in the question file provided on Stream.
+  
+## Part A: encoding the same uncertainty two ways
+
+```{r}
+# Two different uncertainty encodings chunk
+```
+
+## Part B: reading a Bayesian plot
+```{r, echo = T}
+#| fig-align: center
+#| fig-width: 7
+library(ggdist)
+library(ggplot2)
+
+# Worked example: Beta(2,2) prior updated with 7 successes out of 10 trials
+# The posterior is a Beta(2 + 7, 2 + 3) = Beta(9, 5) distribution. 
+# This is provided for you, no modelling required.
+set.seed(2026)
+posterior_draws <- rbeta(10000, 9, 5)
+
+data.frame(value = posterior_draws) |>
+  ggplot(aes(x = value)) +
+  stat_dotsinterval(quantiles = 50, fill = "darkorange",
+                     point_interval = "mean_qi") +
+  scale_y_continuous(NULL, breaks = NULL) +
+  labs(title = "Posterior distribution of a shooter success rates",
+       subtitle = "50 dots, each an equally-likely draw from the posterior",
+       x = "Free-thrown success rate") +
+  theme_minimal()
+```
+
+## Written commentary
+
+### What each of my Part A encoding communicate that the other does not
+
+### Part A plot(s) I would you show to (a) a technical audience familiar with the model, and (b) to a general audience? And why?
+
+### What each dor represents in the quantile-dotplot in Part B comapred to the one of the bootstrap example in the lecture of Week 6
+
+### Interpretation of a credible interval (and difference to a confidence interval)
